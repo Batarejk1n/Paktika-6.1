@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    const int size = 10;
+    std::vector<int> numbers;
+    srand(time(0)); // Инициализация генератора случайных чисел
+
+    // Заполнение массива случайными числами от 0 до 20
+    for (int i = 0; i < size; i++) {
+        numbers.push_back(rand() % 20); // Генерация случайных чисел от 0 до 20
+    }
+
+    // Вывод элементов массива с индексами
+    std::cout << "Массив чисел с индексами:\n";
+    for (int i = 0; i < numbers.size(); i++) {
+        std::cout << "Понедельник " << i << ": " << numbers[i] << std::endl;
+        
+    }
+
+    // Вычисление суммы всех чисел в массиве
+    int sum = 0;
+    for (int num : numbers) {
+        sum += num;
+    }
+
+    double average = static_cast<double>(sum) / numbers.size(); // Вычисляем среднее значение
+
+    // Вывод среднего значения
+    std::cout << "Среднее значение: " << average << std::endl;
+
+    return 0;
+}
